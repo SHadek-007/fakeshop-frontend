@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import './ProductDetails.css';
 
 const ProductDetails = () => {
     const {id} = useParams();
@@ -13,7 +14,7 @@ const ProductDetails = () => {
     return (
         <div className='container'>
       <div className="col">
-        <div className="card w-50 mx-auto h-100 bg-white my-5">
+        <div className="card mx-auto h-100 border-success my-5 details-card">
           <img
             src={product.image}
             className="card-img-top w-50 mx-auto p-3"
@@ -22,8 +23,8 @@ const ProductDetails = () => {
           <div className="card-body">
             <small className='text-secondary'>Category: <span className='fw-bold'>{product.category}</span></small>
             <h4 className="card-title">{product.title}</h4>
-            <p>Price: <span className='text-warning fw-bold'>${product.price}</span></p>
-            <p>{product.description}</p>
+            <p><span className='fw-semibold'>Price:</span> <span className='text-warning fw-bold'>${product.price}</span></p>
+            <p><span className='fw-semibold'>Description:</span> <span className='text-secondary'>{product.description}</span></p>
             <p>Rating: <span className='text-warning fw-bold'>{product?.rating?.rate}</span> ({product?.rating?.count})</p>
           </div>
         </div>
